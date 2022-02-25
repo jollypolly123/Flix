@@ -40,9 +40,15 @@ class MovieAdapter(private val context: Context, private val movies: List<Movie>
             tvOverview.text = movie.overview
 
             if (context.resources.configuration.orientation == ORIENTATION_LANDSCAPE) {
-                Glide.with(context).load(movie.backdropImageUrl).into(ivPoster)
+                Glide.with(context)
+                    .load(movie.backdropImageUrl)
+                    .placeholder(R.drawable.ic_launcher_foreground)
+                    .into(ivPoster)
             } else {
-                Glide.with(context).load(movie.posterImageUrl).into(ivPoster)
+                Glide.with(context)
+                    .load(movie.posterImageUrl)
+                    .placeholder(R.drawable.ic_launcher_foreground)
+                    .into(ivPoster)
             }
         }
     }
